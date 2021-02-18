@@ -5,31 +5,33 @@ import java.util.stream.IntStream;
 
 public class IntList {
 	
+	private int[] elements;
+	
 	/**
 	 * @creates | result 
 	 * @basic
 	 */
 	public int[] getElements() {
-		throw new RuntimeException("not yet implemented");
+		return elements; //FOUT!!
 	}		
 	/**
 	 * @post | result == getElements().length
 	 */
 	public int getLength() {
-		throw new RuntimeException("not yet implemented");
+		return elements.length;
 	}		
 	/**
 	 * @pre | 0 <= index && index <= getLength()
 	 * @post | result == getElements()[index]
 	 */
 	public int getElementAt(int index) {
-		throw new RuntimeException("not yet implemented");
+		return elements[index];
 	}		
 	/**
 	 * @post | getLength() == 0
 	 */
 	public IntList() {
-		throw new RuntimeException("not yet implemented");
+		elements = new int[0];
 	}
 	
 	/**
@@ -44,7 +46,10 @@ public class IntList {
 	 * @post | Arrays.equals(getElements(), 0, getLength()-1, old(getElements()),0,old(getLength()))
 	 */
 	public void addElement(int value) {
-		throw new RuntimeException("not yet implemented");
+		int[] newElements = new int[elements.length + 1];
+		System.arraycopy(elements, 0, newElements, 0, elements.length);
+		newElements[elements.length] = value;
+		elements = newElements;
 	}
 	
 	/**
@@ -55,6 +60,6 @@ public class IntList {
 	 * @post | IntStream.range(0, getLength()).allMatch(i -> i==index ? getElementAt(i)==value : getElementAt(i)==old(getElements())[i])
 	 */
 	public void setElement(int index, int value) {
-		throw new RuntimeException("Not yet implemented");
+		elements[index]= value;
 	}
 }
